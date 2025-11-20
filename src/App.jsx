@@ -255,7 +255,7 @@ export default function ColorPlaneGame() {
       const tEnd = setTimeout(() => {
         const normalized = (finalRotation % 360 + 360) % 360;
         const sectionSize = 360 / sections.length;
-        const pointerAngle = 270;
+        const pointerAngle = 360;
         const landedAngle = (pointerAngle - normalized + 360) % 360;
         const index = Math.floor(landedAngle / sectionSize);
         const landed = sections[index];
