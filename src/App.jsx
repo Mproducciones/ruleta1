@@ -493,10 +493,13 @@ export default function ColorPlaneGame() {
 
           {import.meta.env.VITE_APP_ID ? (
             <IDKitWidget
-              app_id={`app_${import.meta.env.VITE_APP_ID}`}
-              action="play"
+              app_id={import.meta.env.VITE_APP_ID}   // ← SIN app_ duplicado
+              action="play-ruleta"
               signal="ruleta-final"
-              onSuccess={() => setIsVerified(true)}
+              onSuccess={() => {
+                setIsVerified(true);
+                localStorage.removeItem("demoMode");
+          }}
             >
               {({ open }) => (
                 <button onClick={open} style={{
